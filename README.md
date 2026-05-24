@@ -4,7 +4,7 @@ Vibe Coding Simulator is a browser-based text simulator about what happens after
 
 Play online:
 
-https://yaoqinxue-cmd.github.io/VibecodingSimulator/
+https://yaoqinxue-cmd.github.io/VibecoderSimulator/
 
 ## Local Development
 
@@ -27,4 +27,4 @@ This project deploys to GitHub Pages through GitHub Actions.
 
 - Build command: `npm run build`
 - Output directory: `dist`
-- Public base path: `/VibecodingSimulator/`
+- Public base path: `/VibecoderSimulator/`

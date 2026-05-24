@@ -1,4 +1,4 @@
-import { gamePromise, gameTitle } from "../../content/constants";
+import { gamePromise } from "../../content/constants";
 
 type StartScreenProps = {
   hasSavedGame: boolean;
@@ -14,7 +14,9 @@ export function StartScreen({
   return (
     <main className="screen start-screen">
       <section className="start-panel" aria-labelledby="start-title">
-        <h1 id="start-title">{gameTitle}</h1>
+        <h1 id="start-title">
+          <span className="title-nowrap">Vibe Coding</span> 模拟器
+        </h1>
         <p>{gamePromise}</p>
         <div className="start-actions">
           <button className="primary-action" type="button" onClick={onStart}>

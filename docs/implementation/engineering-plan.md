@@ -59,11 +59,11 @@ Vibe Coding 模拟器是一款 15-20 分钟完成一局的浏览器文字模拟�
 
 第一版部署到 GitHub Pages，并保持仓库开源。
 
-- 仓库：`yaoqinxue-cmd/VibecodingSimulator`
-- 页面地址：`https://yaoqinxue-cmd.github.io/VibecodingSimulator/`
+- 仓库：`yaoqinxue-cmd/VibecoderSimulator`
+- 页面地址：`https://yaoqinxue-cmd.github.io/VibecoderSimulator/`
 - 构建方式：GitHub Actions 自动运行 `npm ci` 和 `npm run build`
 - 发布产物：`dist`
-- Vite `base`：`/VibecodingSimulator/`
+- Vite `base`：`/VibecoderSimulator/`
 
 选择 GitHub Pages 的原因：
 

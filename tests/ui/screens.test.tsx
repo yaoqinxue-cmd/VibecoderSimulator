@@ -20,6 +20,9 @@ describe("main screens", () => {
     expect(
       screen.getByRole("button", { name: "开始模拟" }),
     ).toBeInTheDocument();
+    expect(
+      screen.getByText("如果你从今天开始 Vibe Coding..."),
+    ).toBeInTheDocument();
   });
 
   it("renders an event screen as a choice round", () => {
