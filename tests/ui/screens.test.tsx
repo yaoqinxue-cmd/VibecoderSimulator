@@ -1,14 +1,40 @@
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+import { App } from "../../src/app/App";
 import { cards } from "../../src/content/cards";
 import { endings } from "../../src/content/endings";
 import { createInitialState } from "../../src/game/engine";
+import { saveGame } from "../../src/game/storage";
 import { EventScreen } from "../../src/ui/screens/EventScreen";
 import { FeedbackScreen } from "../../src/ui/screens/FeedbackScreen";
 import { ResultScreen } from "../../src/ui/screens/ResultScreen";
 import { StartScreen } from "../../src/ui/screens/StartScreen";
 
 describe("main screens", () => {
+  beforeEach(() => {
+    window.localStorage.clear();
+  });
+
+  it("always opens on the start screen even when a saved game exists", () => {
+    saveGame({
+      ...createInitialState(cards, "saved-game-test"),
+      screen: "result",
+      endingId: endings[0].id,
+    });
+
+    render(<App />);
+
+    expect(
+      screen.getByRole("heading", { name: "Vibe Coding 模拟器" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "继续上一局" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole("heading", { name: endings[0].label }),
+    ).not.toBeInTheDocument();
+  });
+
   it("renders the start screen with the product name", () => {
     render(
       <StartScreen hasSavedGame={false} onResume={vi.fn()} onStart={vi.fn()} />,

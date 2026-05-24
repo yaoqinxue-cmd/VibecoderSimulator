@@ -17,10 +17,7 @@ import { StartScreen } from "../ui/screens/StartScreen";
 
 export function App() {
   const savedState = useMemo(() => loadGame(), []);
-  const [gameState, dispatch] = useReducer(
-    gameReducer,
-    savedState ?? createStartState(),
-  );
+  const [gameState, dispatch] = useReducer(gameReducer, createStartState());
   const currentCard = getCurrentCard(cards, gameState);
   const ending = getEnding(endings, gameState);
 
