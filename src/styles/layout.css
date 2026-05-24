@@ -210,8 +210,12 @@
 }
 
 .choice-button:hover {
-  border-color: var(--color-amber);
-  background: rgba(255, 209, 102, 0.08);
+  border-color: var(--color-border-strong);
+  background: rgba(139, 255, 193, 0.06);
+}
+
+.choice-button:focus-visible {
+  outline-color: var(--color-green);
 }
 
 .choice-button__index {

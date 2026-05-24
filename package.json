@@ -1,7 +1,27 @@
 {
-  "name": "vibe-coding-simulator",
+  "name": "vibecoder-simulator",
   "version": "0.1.0",
+  "description": "A browser-based text simulator about what kind of person you become after you start vibe coding.",
   "private": true,
+  "license": "MIT",
+  "homepage": "https://yaoqinxue-cmd.github.io/VibecoderSimulator/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yaoqinxue-cmd/VibecoderSimulator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yaoqinxue-cmd/VibecoderSimulator/issues"
+  },
+  "keywords": [
+    "vibe-coding",
+    "simulator",
+    "text-game",
+    "browser-game",
+    "interactive-fiction",
+    "react",
+    "typescript",
+    "vite"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -64,6 +64,7 @@ Vibe Coding 模拟器是一款 15-20 分钟完成一局的浏览器文字模拟�
 - 构建方式：GitHub Actions 自动运行 `npm ci` 和 `npm run build`
 - 发布产物：`dist`
 - Vite `base`：`/VibecoderSimulator/`
+- 开源配置：MIT License、README、package metadata、GitHub About description、topics、homepage
 
 选择 GitHub Pages 的原因：
 
