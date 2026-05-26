@@ -1,0 +1,16 @@
+{
+  "id": "team-refactor",
+  "input": {
+    "situation": "我们的代码越来越乱，新功能越来越慢。",
+    "decision": "团队要不要全面重构？",
+    "options": ["全面重构", "局部整理", "继续做功能"],
+    "goal": "让交付速度恢复，同时不要拖垮业务节奏",
+    "fear": "重构拖太久，业务功能也交不出来",
+    "domain": "team"
+  },
+  "expected": {
+    "minBranches": 3,
+    "requiredSignals": ["交付速度", "重复 bug", "理解成本"],
+    "forbiddenNextAction": "立刻全面重写"
+  }
+}

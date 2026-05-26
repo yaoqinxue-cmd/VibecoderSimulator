@@ -1,0 +1,16 @@
+{
+  "id": "indie-product-pricing",
+  "input": {
+    "situation": "我有一个 AI 小工具，用户增长还可以，但调用成本越来越高。",
+    "decision": "继续免费冲规模，还是现在开始收费？",
+    "options": ["继续免费", "开始收费"],
+    "goal": "验证这个产品能不能长期做下去",
+    "fear": "太早收费把用户吓走",
+    "domain": "product"
+  },
+  "expected": {
+    "minBranches": 3,
+    "requiredSignals": ["付费意愿", "留存", "账单"],
+    "forbiddenNextAction": "直接全面收费"
+  }
+}

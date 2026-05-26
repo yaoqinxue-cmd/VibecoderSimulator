@@ -1,0 +1,16 @@
+{
+  "id": "creator-commercialization",
+  "input": {
+    "situation": "我做了一个还没完全稳定的小产品，有人邀请我做付费分享。",
+    "decision": "要不要接这个主题很大的分享？",
+    "options": ["接下分享", "延后再讲", "改成真实复盘"],
+    "goal": "获得机会，但不把还没发生的成功讲满",
+    "fear": "产品还没稳定，人设先跑远",
+    "domain": "creator"
+  },
+  "expected": {
+    "minBranches": 3,
+    "requiredSignals": ["产品稳定性", "声誉", "真实复盘"],
+    "forbiddenNextAction": "直接讲成成功方法论"
+  }
+}

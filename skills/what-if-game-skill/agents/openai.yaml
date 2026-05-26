@@ -1,0 +1,8 @@
+interface:
+  display_name: "WHAT-IF Game Skill"
+  short_description: "Turn real decisions into playable future branches."
+  brand_color: "#8BFFC1"
+  default_prompt: "Use $what-if-game-skill to rehearse a real decision I am facing."
+
+policy:
+  allow_implicit_invocation: true

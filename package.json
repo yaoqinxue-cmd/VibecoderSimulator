@@ -30,7 +30,8 @@
     "test": "vitest run --config vitest.config.ts",
     "test:watch": "vitest --config vitest.config.ts",
     "lint": "tsc --noEmit",
-    "format": "prettier --check ."
+    "format": "prettier --check .",
+    "validate:what-if-skill": "node skills/what-if-game-skill/scripts/validate-fixtures.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.3.0",
