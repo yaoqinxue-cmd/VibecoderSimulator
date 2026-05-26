@@ -3,6 +3,10 @@ import { join } from "node:path";
 
 const skillRoot = new URL("..", import.meta.url);
 const fixturesDir = new URL("fixtures/", skillRoot);
+const scenarioPatternsUrl = new URL(
+  "references/scenario-patterns.md",
+  skillRoot,
+);
 
 function assert(condition, message) {
   if (!condition) {
@@ -70,4 +74,32 @@ for (const filename of filenames) {
   validateFixture(JSON.parse(raw), filename);
 }
 
-console.log(`Validated ${filenames.length} WHAT-IF Game Skill fixtures.`);
+const scenarioPatterns = await readFile(scenarioPatternsUrl, "utf8");
+const patternSections = scenarioPatterns
+  .split(/^## /m)
+  .slice(1)
+  .map((section) => section.trim());
+
+assert(
+  patternSections.length >= 8,
+  `scenario-patterns.md: expected at least 8 patterns, found ${patternSections.length}`,
+);
+
+for (const section of patternSections) {
+  const title = section.split("\n")[0];
+  for (const requiredHeading of [
+    "Common illusion:",
+    "Hidden costs:",
+    "Early signals:",
+    "Useful branch set:",
+  ]) {
+    assert(
+      section.includes(requiredHeading),
+      `scenario-patterns.md: pattern "${title}" missing "${requiredHeading}"`,
+    );
+  }
+}
+
+console.log(
+  `Validated ${filenames.length} WHAT-IF Game Skill fixtures and ${patternSections.length} scenario patterns.`,
+);
