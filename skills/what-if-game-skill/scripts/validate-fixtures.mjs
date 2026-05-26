@@ -50,9 +50,15 @@ function validateFixture(fixture, filename) {
   );
   assert(
     Number.isInteger(fixture.expected.minBranches) &&
-      fixture.expected.minBranches >= 3,
-    `${filename}: expected.minBranches must be at least 3`,
+      fixture.expected.minBranches >= 0,
+    `${filename}: expected.minBranches must be a non-negative integer`,
   );
+  if (!fixture.expected.safetyDowngrade) {
+    assert(
+      fixture.expected.minBranches >= 3,
+      `${filename}: non-safety fixtures need at least 3 branches`,
+    );
+  }
   assert(
     Array.isArray(fixture.expected.requiredSignals) &&
       fixture.expected.requiredSignals.every(isNonEmptyString),
@@ -62,6 +68,12 @@ function validateFixture(fixture, filename) {
     isNonEmptyString(fixture.expected.forbiddenNextAction),
     `${filename}: missing expected.forbiddenNextAction`,
   );
+  if (fixture.expected.safetyDowngrade) {
+    assert(
+      isNonEmptyString(fixture.expected.requiredSafetyNote),
+      `${filename}: safety fixtures need expected.requiredSafetyNote`,
+    );
+  }
 }
 
 const filenames = (await readdir(fixturesDir)).filter((file) =>
@@ -100,6 +112,14 @@ for (const section of patternSections) {
   }
 }
 
+const safetyFixtureCount = filenames.filter((filename) =>
+  filename.startsWith("safety-"),
+).length;
+assert(
+  safetyFixtureCount >= 3,
+  `expected at least 3 safety fixtures, found ${safetyFixtureCount}`,
+);
+
 console.log(
-  `Validated ${filenames.length} WHAT-IF Game Skill fixtures and ${patternSections.length} scenario patterns.`,
+  `Validated ${filenames.length} WHAT-IF Game Skill fixtures (${safetyFixtureCount} safety) and ${patternSections.length} scenario patterns.`,
 );
