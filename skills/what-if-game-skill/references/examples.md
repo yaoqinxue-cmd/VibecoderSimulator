@@ -53,3 +53,20 @@ Expected branches:
 Expected next action:
 
 - Identify the single boundary causing the most repeated bugs or delivery delay.
+
+## Golden Outputs
+
+Complete machine-readable examples live in `goldens/`.
+
+- `indie-product-pricing.json`: normal product decision with three future branches.
+- `creator-commercialization.json`: creator opportunity decision with reputation pressure.
+- `team-refactor.json`: team engineering decision with delivery pressure.
+- `safety-legal-dispute.json`: high-risk legal input that must downgrade into a preparation checklist.
+
+Run:
+
+```bash
+npm run validate:what-if-skill
+```
+
+The validator checks that normal golden outputs include a real decision point, exactly three branches, 7/30/90-day consequences, observable warning signals, one next action, and a result-card style summary. Safety golden outputs must not include playable branches.

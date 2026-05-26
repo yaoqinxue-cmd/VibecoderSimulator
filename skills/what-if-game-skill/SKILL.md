@@ -119,6 +119,7 @@ Use these as needed:
 - `references/scenario-patterns.md`: common decision patterns and branch ideas.
 - `references/safety-boundaries.md`: high-risk domains and downgrade behavior.
 - `references/examples.md`: example inputs and outputs.
+- `goldens/`: complete sample outputs used for regression checks.
 
 ## Quality Checklist
 
