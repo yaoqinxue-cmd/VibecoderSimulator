@@ -4,12 +4,14 @@ type StartScreenProps = {
   hasSavedGame: boolean;
   onStart: () => void;
   onResume: () => void;
+  onOpenWhatIf?: () => void;
 };
 
 export function StartScreen({
   hasSavedGame,
   onStart,
   onResume,
+  onOpenWhatIf,
 }: StartScreenProps) {
   return (
     <main className="screen start-screen">
@@ -29,6 +31,15 @@ export function StartScreen({
               onClick={onResume}
             >
               继续上一局
+            </button>
+          ) : null}
+          {onOpenWhatIf ? (
+            <button
+              className="secondary-action"
+              type="button"
+              onClick={onOpenWhatIf}
+            >
+              WHAT-IF Demo
             </button>
           ) : null}
         </div>

@@ -10,6 +10,8 @@
 
 https://yaoqinxue-cmd.github.io/VibecoderSimulator/
 
+首页现在也有一个 `WHAT-IF Demo` 入口：输入一个现实选择，它会把后续可能发生的变化整理成几条可比较的未来分支。
+
 ## 本地开发
 
 ```bash

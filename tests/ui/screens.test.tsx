@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { App } from "../../src/app/App";
 import { cards } from "../../src/content/cards";
@@ -13,6 +13,7 @@ import { StartScreen } from "../../src/ui/screens/StartScreen";
 describe("main screens", () => {
   beforeEach(() => {
     window.localStorage.clear();
+    window.history.pushState("", document.title, "/");
   });
 
   it("always opens on the start screen even when a saved game exists", () => {
@@ -49,6 +50,17 @@ describe("main screens", () => {
     expect(
       screen.getByText("如果你从今天开始 Vibe Coding..."),
     ).toBeInTheDocument();
+  });
+
+  it("opens the WHAT-IF demo from the start screen", () => {
+    render(<App />);
+
+    fireEvent.click(screen.getByRole("button", { name: "WHAT-IF Demo" }));
+
+    expect(
+      screen.getByRole("heading", { name: "试玩一个未来分支" }),
+    ).toBeInTheDocument();
+    expect(window.location.hash).toBe("#what-if");
   });
 
   it("renders an event screen as a choice round", () => {
